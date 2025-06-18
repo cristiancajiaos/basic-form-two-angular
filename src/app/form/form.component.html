@@ -1,0 +1,36 @@
+<section class="form">
+  <form [formGroup]="userForm" (submit)="onSubmit()">
+    <div class="form-group mb-2">
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control"/>
+    </div>
+    <div class="form-group mb-2">
+      <label>Apellido</label>
+      <input type="text" formControlName="apellido" class="form-control"/>
+    </div>
+    <div class="form-group mb-2">
+      <label>Email</label>
+      <input type="email" formControlName="email" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+        Enviar
+      </button>
+    </div>
+  </form>
+
+  <hr/>
+
+  <p>userForm: {{userForm.value | json}}</p>
+  <p>nombreControl.errors: {{nombreControl.errors | json}}</p>
+  <p>apellidoControl.errors: {{apellidoControl.errors | json}}</p>
+  <p>emailControl.errors: {{emailControl.errors | json}}</p>
+
+  <hr/>
+
+  <ng-container *ngIf="user.nombre != '' && user.apellido != '' && user.email != ''">
+    <p><strong>Nombre</strong>: {{user.nombre}}</p>
+    <p><strong>Apellido</strong>: {{user.apellido}}</p>
+    <p><strong>Email</strong>: {{user.email}}</p>
+  </ng-container>
+</section>
