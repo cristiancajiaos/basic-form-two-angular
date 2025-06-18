@@ -38,4 +38,16 @@ export class FormComponent {
     this.user.email = this.userForm.controls["email"].value;
   }
 
+  public resetForm(): void {
+    this.user.nombre = '';
+    this.user.apellido = '';
+    this.user.email = '';
+
+    this.userForm.reset();
+    this.userForm.controls['nombre'].setValue('');
+    this.userForm.controls['apellido'].setValue('');
+    this.userForm.controls['email'].setValue('');
+
+  }
+
 }
