@@ -3,14 +3,32 @@
     <div class="form-group mb-2">
       <label>Nombre</label>
       <input type="text" formControlName="nombre" class="form-control"/>
+      <ng-container *ngIf="nombreControl.touched && nombreControl.invalid">
+        <ng-container *ngIf="nombreControl.errors?.['required']">
+          <small class="text-danger">Se requiere el nombre</small>
+        </ng-container>
+      </ng-container>
     </div>
     <div class="form-group mb-2">
       <label>Apellido</label>
       <input type="text" formControlName="apellido" class="form-control"/>
+      <ng-container *ngIf="apellidoControl.touched && apellidoControl.invalid">
+        <ng-container *ngIf="apellidoControl.errors?.['required']">
+          <small class="text-danger">Se requiere el apellido</small>
+        </ng-container>
+      </ng-container>
     </div>
     <div class="form-group mb-2">
       <label>Email</label>
       <input type="email" formControlName="email" class="form-control"/>
+      <ng-container *ngIf="emailControl.touched && emailControl.invalid">
+        <ng-container *ngIf="emailControl.errors?.['required']">
+          <small class="text-danger">Se requiere el email</small>
+        </ng-container>
+        <ng-container *ngIf="emailControl.errors?.['email']">
+          <small class="text-danger">El email ingresado no es válido</small>
+        </ng-container>
+      </ng-container>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
